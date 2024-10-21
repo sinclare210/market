@@ -1,5 +1,6 @@
 .navbar {
   height: 80px;
+  position: relative; 
 
   .wrapper {
     padding: 10px 30px;
@@ -59,7 +60,7 @@
     }
   }
 
-  /* Mobile Menu */
+
   .mobileMenu {
     display: none;
     flex-direction: column;
@@ -70,6 +71,7 @@
     top: 80px;
     width: 100%;
     left: 0;
+    z-index: 10;
 
     .item {
       font-size: 18px;
@@ -80,7 +82,7 @@
     }
   }
 
-  /* Media Query for Mobile Screens */
+
   @media only screen and (max-width: 768px) {
     .wrapper {
       .left {
@@ -96,11 +98,11 @@
         gap: 15px;
 
         .icons {
-          display: flex; /* Keep the icons visible */
+          display: flex; 
           gap: 15px;
 
           .cartIcon {
-            display: block; /* Ensure the cart icon is visible */
+            display: block; 
           }
         }
 
@@ -112,6 +114,20 @@
 
     .mobileMenu {
       display: none;
+      z-index: 10; 
     }
+
+    &.active {
+      display: flex; 
+    }
+  }
+
+ 
+  @media only screen and (max-width: 768px) {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; 
   }
 }
