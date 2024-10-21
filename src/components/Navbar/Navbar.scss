@@ -7,21 +7,17 @@
     align-items: center;
     justify-content: space-between;
 
-    .item {
-      display: flex;
-      align-items: center;
-      font-size: 18px;
-    }
-
     .left {
       display: flex;
       align-items: center;
       gap: 25px;
     }
+
     .center {
       font-size: 30px;
       letter-spacing: 2px;
     }
+
     .right {
       display: flex;
       align-items: center;
@@ -52,6 +48,70 @@
           }
         }
       }
+
+      .menuIcon {
+        display: none;
+        cursor: pointer;
+        svg {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  /* Mobile Menu */
+  .mobileMenu {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 30px;
+    background-color: #f8f8f8;
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    left: 0;
+
+    .item {
+      font-size: 18px;
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  /* Media Query for Mobile Screens */
+  @media only screen and (max-width: 768px) {
+    .wrapper {
+      .left {
+        display: none;
+      }
+
+      .center {
+        font-size: 24px;
+        letter-spacing: 1px;
+      }
+
+      .right {
+        gap: 15px;
+
+        .icons {
+          display: flex; /* Keep the icons visible */
+          gap: 15px;
+
+          .cartIcon {
+            display: block; /* Ensure the cart icon is visible */
+          }
+        }
+
+        .menuIcon {
+          display: block; /* Show hamburger icon */
+        }
+      }
+    }
+
+    .mobileMenu {
+      display: none;
     }
   }
 }
