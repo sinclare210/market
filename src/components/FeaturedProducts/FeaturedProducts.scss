@@ -10,17 +10,59 @@
     h1 {
       flex: 2;
       text-transform: capitalize;
+      font-size: 28px;
     }
 
-    p{
-      flex:3;
-      color:gray
+    p {
+      flex: 3;
+      color: gray;
     }
   }
 
-  .bottom{
+  .bottom {
     display: flex;
     justify-content: center;
     gap: 50px;
+    flex-wrap: wrap; /* Allows cards to wrap on small screens */
+  }
+
+  @media only screen and (max-width: 768px) {
+    margin: 50px 100px;
+
+    .top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .bottom {
+      gap: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    margin: 20px;
+
+    .top {
+      h1 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+
+    .bottom {
+      gap: 15px;
+    }
   }
 }
