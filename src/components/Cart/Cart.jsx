@@ -68,3 +68,88 @@
 // };
 
 // export default Cart;
+
+import React from "react";
+import "./Cart.scss";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+
+
+const Cart = () => {
+
+    const data = [
+  {
+    id: 1,
+    img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    title: "Elegant Red Dress",
+    price: 59.99,
+     desc:"lorem sjsjsjsj",
+     quantity: 30,
+    oldPrice: 79.99,
+  },
+  {
+    id: 2,
+    img: "https://images.pexels.com/photos/27333760/pexels-photo-27333760/free-photo-of-portrait-of-a-man-smiling.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    title: "Men's Casual Jacket",
+    price: 89.99,
+     desc:"lorem sjsjsjsj",
+     quantity: 30,
+    oldPrice: 119.99,
+  },
+  {
+    id: 3,
+    img: "https://images.pexels.com/photos/28555848/pexels-photo-28555848/free-photo-of-woman-holding-turkish-coffee-and-delight-in-istanbul.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    title: "Stylish Sunglasses",
+    price: 25.99,
+     desc:"lorem sjsjsjsj",
+     quantity: 30,
+    oldPrice: 35.99,
+  },
+  {
+    id: 4,
+    img: "https://images.pexels.com/photos/4462786/pexels-photo-4462786.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    title: "Leather Handbag",
+    price: 149.99,
+    desc:"lorem sjsjsjsj",
+    quantity: 30,
+    oldPrice: 199.99,
+  },
+];
+
+
+ 
+
+
+
+ 
+  return (
+    <div className="cart">
+      <h1>Products in your cart</h1>
+      {data?.map((item) => (
+        <div className="item" key={item.id}>
+          <img src={item.img} alt="" />
+          <div className="details">
+            <h1>{item.title}</h1>
+            <p>{item.desc?.substring(0, 100)}</p>
+            <div className="price">
+              {item.quantity} x ${item.price}
+            </div>
+          </div>
+          <DeleteOutlinedIcon
+            className="delete"
+            
+          />
+        </div>
+      ))}
+      <div className="total">
+        <span>SUBTOTAL</span>
+        <span>123</span>
+      </div>
+      <button>PROCEED TO CHECKOUT</button>
+      <span className="reset" onClick={() => dispatch(resetCart())}>
+        Reset Cart
+      </span>
+    </div>
+  );
+};
+
+export default Cart;

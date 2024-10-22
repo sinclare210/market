@@ -8,10 +8,13 @@ import MenuIcon from "@mui/icons-material/Menu";  // Import Hamburger Icon
 import CloseIcon from "@mui/icons-material/Close"; // Import Close Icon
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
+import Cart from "../Cart/Cart";
+
 
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [open, setOpen] = useState(false)
 
   const toggleMenu = () => {
     setOpenMenu(!openMenu);
@@ -49,7 +52,7 @@ const Navbar = () => {
             <SearchIcon />
             <PersonOutlineOutlinedIcon />
             <FavoriteBorderOutlinedIcon />
-            <div className="cartIcon">
+            <div className="cartIcon" onClick={() => setOpen(!open)}>
               <ShoppingCartOutlinedIcon />
               <span>{0}</span>
             </div>
@@ -76,6 +79,7 @@ const Navbar = () => {
           <Link className="link" to="/">Stores</Link>
         </div>
       </div>
+      {open && <Cart/>}
     </div>
   );
 };
